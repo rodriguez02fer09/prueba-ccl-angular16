@@ -1,5 +1,6 @@
 import {Component} from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
+import {HttpClient} from '@angular/common/http'
 
 @Component({
   selector: 'app-login',
@@ -8,20 +9,38 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 })
 export class LoginComponent {
   loginForm: FormGroup
+  mockUser: any = null
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    })
+
+    // ✅ Cargar el usuario simulado desde la ruta correcta
+    this.http.get('assets/mock-user.json').subscribe({
+      next: data => (this.mockUser = data),
+      error: err => console.error('Error cargando mock-user.json', err),
     })
   }
 
   onSubmit(): void {
-    if (this.loginForm.valid) {
-      console.log('Datos del formulario:', this.loginForm.value)
-      alert('Inicio de sesión simulado exitoso ✅')
-    } else {
+    if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched()
+      return
+    }
+
+    const {email, password} = this.loginForm.value
+
+    if (
+      this.mockUser &&
+      email.trim().toLowerCase() === this.mockUser.email.toLowerCase() &&
+      password === this.mockUser.password
+    ) {
+      localStorage.setItem('token', this.mockUser.token)
+      alert('✅ Inicio de sesión simulado correctamente')
+    } else {
+      alert('❌ Credenciales incorrectas')
     }
   }
 
