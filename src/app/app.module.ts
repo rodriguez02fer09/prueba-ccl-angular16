@@ -10,10 +10,11 @@ import {MatButtonModule} from '@angular/material/button'
 
 import {AppRoutingModule} from './app-routing.module'
 import {AppComponent} from './app.component'
-import {LoginComponent} from './auth/components/login/login.component'
+import {LoginComponent} from './auth/components/login/login.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component'
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, DashboardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

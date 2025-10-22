@@ -1,0 +1,28 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #bbdefb, #e3f2fd);
+
+  h1 {
+    font-size: 2rem;
+    color: #1565c0;
+    margin-bottom: 2rem;
+  }
+
+  .options {
+    display: flex;
+    gap: 2rem;
+
+    button {
+      width: 220px;
+      height: 60px;
+      font-size: 1rem;
+      border-radius: 12px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+}
