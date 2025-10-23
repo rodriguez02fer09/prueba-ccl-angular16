@@ -52,14 +52,12 @@ export class LoginComponent {
       // Mostramos mensaje
       alert('✅ Inicio de sesión simulado correctamente')
 
-      // 🚀 Redirigimos inmediatamente al Dashboard
       this.router.navigate(['/dashboard'])
     } else {
       alert('❌ Credenciales incorrectas')
     }
   }
 
-  // Getters para acceso rápido desde el HTML
   get email() {
     return this.loginForm.get('email')
   }

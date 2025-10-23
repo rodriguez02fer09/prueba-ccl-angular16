@@ -22,6 +22,7 @@ import {AppComponent} from './app.component'
 import {LoginComponent} from './auth/components/login/login.component'
 import {DashboardComponent} from './features/dashboard/dashboard.component'
 import {InventarioComponent} from './features/inventario/inventario.component'
+import {MovimientosComponent} from './features/movimientos/movimientos.component'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {InventarioComponent} from './features/inventario/inventario.component'
     LoginComponent,
     DashboardComponent,
     InventarioComponent,
+    MovimientosComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,6 @@ import {InventarioComponent} from './features/inventario/inventario.component'
     FormsModule,
     HttpClientModule,
 
-    // Angular Material
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -47,7 +48,6 @@ import {InventarioComponent} from './features/inventario/inventario.component'
     MatToolbarModule,
     MatDividerModule,
 
-    // Routing
     AppRoutingModule,
   ],
 
