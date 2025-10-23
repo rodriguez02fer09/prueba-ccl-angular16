@@ -1,43 +1,64 @@
-<div class="inventario-container">
-  <h2>📦 Inventario Actual</h2>
+<div class="inventario-wrapper">
+  <mat-card class="inventario-card">
+    <mat-card-header>
+      <mat-card-title>📦 Inventario Actual</mat-card-title>
+    </mat-card-header>
 
-  <div class="buscador">
-    <input
-      type="text"
-      placeholder="🔍 Buscar producto o categoría..."
-      [(ngModel)]="filtro"
-      (input)="aplicarFiltro()"
-    />
-  </div>
+    <mat-card-content>
+      <!-- Buscador -->
+      <mat-form-field appearance="outline" class="buscador">
+        <mat-label>Buscar producto o categoría</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="filtro"
+          (input)="aplicarFiltro()"
+          placeholder="Ej: teclado, monitor..."
+        />
+      </mat-form-field>
 
-  <div *ngIf="loading" class="loading">Cargando inventario...</div>
-  <div *ngIf="error" class="error">Error al cargar los datos 😢</div>
+      <div *ngIf="loading" class="loading">
+        <mat-spinner diameter="40"></mat-spinner>
+        <p>Cargando inventario...</p>
+      </div>
 
-  <table *ngIf="!loading && !error && productosFiltrados.length > 0">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Producto</th>
-        <th>Categoría</th>
-        <th>Cantidad</th>
-        <th>Precio Unitario</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of productosFiltrados">
-        <td>{{ p.id }}</td>
-        <td>{{ p.nombre }}</td>
-        <td>{{ p.categoria }}</td>
-        <td>{{ p.cantidad }}</td>
-        <td>{{ p.precioUnitario | currency : 'COP' : 'symbol' : '1.0-0' }}</td>
-      </tr>
-    </tbody>
-  </table>
+      <div *ngIf="error" class="error">
+        <p>❌ Error al cargar los datos 😢</p>
+      </div>
 
-  <div
-    *ngIf="!loading && !error && productosFiltrados.length === 0"
-    class="vacio"
-  >
-    No se encontraron productos que coincidan con "{{ filtro }}"
-  </div>
+      <!-- Tabla -->
+      <table
+        *ngIf="!loading && !error && productosFiltrados.length > 0"
+        class="mat-elevation-z2"
+      >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of productosFiltrados">
+            <td>{{ p.id }}</td>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.categoria }}</td>
+            <td>{{ p.cantidad }}</td>
+            <td>
+              {{ p.precioUnitario | currency : 'COP' : 'symbol' : '1.0-0' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div
+        *ngIf="!loading && !error && productosFiltrados.length === 0"
+        class="vacio"
+      >
+        <p>⚠️ No se encontraron productos que coincidan con "{{ filtro }}"</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

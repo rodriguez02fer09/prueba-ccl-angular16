@@ -14,7 +14,7 @@ export interface Producto {
   providedIn: 'root',
 })
 export class InventarioService {
-  private readonly url = '/assets/mock-inventario.json'
+  private readonly url = 'assets/mock-inventario.json'
 
   constructor(private http: HttpClient) {}
 
