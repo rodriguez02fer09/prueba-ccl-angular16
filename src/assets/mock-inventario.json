@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "nombre": "Laptop Dell Inspiron 15",
+    "categoria": "Electrónicos",
+    "cantidad": 8,
+    "precioUnitario": 3500000
+  },
+  {
+    "id": 2,
+    "nombre": "Mouse Logitech M170",
+    "categoria": "Periféricos",
+    "cantidad": 25,
+    "precioUnitario": 80000
+  },
+  {
+    "id": 3,
+    "nombre": "Teclado Redragon Kumara K552",
+    "categoria": "Periféricos",
+    "cantidad": 15,
+    "precioUnitario": 180000
+  },
+  {
+    "id": 4,
+    "nombre": "Monitor LG UltraGear 24''",
+    "categoria": "Pantallas",
+    "cantidad": 10,
+    "precioUnitario": 900000
+  },
+  {
+    "id": 5,
+    "nombre": "Silla Gamer Cougar Armor One",
+    "categoria": "Mobiliario",
+    "cantidad": 5,
+    "precioUnitario": 1200000
+  },
+  {
+    "id": 6,
+    "nombre": "Disco SSD Kingston 480GB",
+    "categoria": "Almacenamiento",
+    "cantidad": 30,
+    "precioUnitario": 220000
+  },
+  {
+    "id": 7,
+    "nombre": "Memoria RAM Corsair 8GB DDR4",
+    "categoria": "Componentes",
+    "cantidad": 20,
+    "precioUnitario": 150000
+  },
+  {
+    "id": 8,
+    "nombre": "Fuente EVGA 600W 80+ Bronze",
+    "categoria": "Componentes",
+    "cantidad": 12,
+    "precioUnitario": 350000
+  },
+  {
+    "id": 9,
+    "nombre": "Cable HDMI 2.0 1.5m",
+    "categoria": "Accesorios",
+    "cantidad": 40,
+    "precioUnitario": 25000
+  },
+  {
+    "id": 10,
+    "nombre": "Headset HyperX Cloud II",
+    "categoria": "Audio",
+    "cantidad": 7,
+    "precioUnitario": 480000
+  }
+]

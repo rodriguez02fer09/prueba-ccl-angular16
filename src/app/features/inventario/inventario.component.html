@@ -1,0 +1,43 @@
+<div class="inventario-container">
+  <h2>📦 Inventario Actual</h2>
+
+  <div class="buscador">
+    <input
+      type="text"
+      placeholder="🔍 Buscar producto o categoría..."
+      [(ngModel)]="filtro"
+      (input)="aplicarFiltro()"
+    />
+  </div>
+
+  <div *ngIf="loading" class="loading">Cargando inventario...</div>
+  <div *ngIf="error" class="error">Error al cargar los datos 😢</div>
+
+  <table *ngIf="!loading && !error && productosFiltrados.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Producto</th>
+        <th>Categoría</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productosFiltrados">
+        <td>{{ p.id }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.categoria }}</td>
+        <td>{{ p.cantidad }}</td>
+        <td>{{ p.precioUnitario | currency : 'COP' : 'symbol' : '1.0-0' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div
+    *ngIf="!loading && !error && productosFiltrados.length === 0"
+    class="vacio"
+  >
+    No se encontraron productos que coincidan con "{{ filtro }}"
+  </div>
+</div>
