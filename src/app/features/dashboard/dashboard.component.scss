@@ -1,28 +1,36 @@
-.dashboard-container {
+.dashboard-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   background: linear-gradient(135deg, #bbdefb, #e3f2fd);
+}
 
-  h1 {
-    font-size: 2rem;
-    color: #1565c0;
-    margin-bottom: 2rem;
-  }
+.dashboard-card {
+  width: 360px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #fff;
+}
 
-  .options {
-    display: flex;
-    gap: 2rem;
+mat-card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 1rem;
+}
 
-    button {
-      width: 220px;
-      height: 60px;
-      font-size: 1rem;
-      border-radius: 12px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
+.dashboard-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  button {
+    height: 48px;
+    font-size: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
   }
 }

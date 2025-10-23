@@ -10,8 +10,8 @@ import {
   styleUrls: ['./inventario.component.scss'],
 })
 export class InventarioComponent implements OnInit {
-  productos: Producto[] = [] // data original
-  productosFiltrados: Producto[] = [] // data visible tras filtro
+  productos: Producto[] = []
+  productosFiltrados: Producto[] = []
   filtro = ''
   loading = true
   error = false
@@ -21,31 +21,25 @@ export class InventarioComponent implements OnInit {
   ngOnInit(): void {
     this.inventarioService.obtenerInventario().subscribe({
       next: data => {
+        console.log('✅ Inventario cargado:', data)
         this.productos = data
-        this.productosFiltrados = data // mostrar todo al inicio
+        this.productosFiltrados = data
         this.loading = false
       },
       error: err => {
-        console.error('❌ Error cargando inventario:', err)
+        console.error('❌ Error al cargar inventario:', err)
         this.error = true
         this.loading = false
       },
     })
   }
 
-  // Normaliza acentos y hace búsqueda insensible a mayúsculas
-  private norm(v: string): string {
-    return (v || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '') // quita acentos
-  }
-
   aplicarFiltro(): void {
-    const t = this.norm(this.filtro.trim())
+    const term = this.filtro.toLowerCase()
     this.productosFiltrados = this.productos.filter(
       p =>
-        this.norm(p.nombre).includes(t) || this.norm(p.categoria).includes(t),
+        p.nombre.toLowerCase().includes(term) ||
+        p.categoria.toLowerCase().includes(term),
     )
   }
 }

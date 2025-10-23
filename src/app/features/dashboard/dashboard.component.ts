@@ -12,4 +12,8 @@ export class DashboardComponent {
     console.log('➡️ Redirigiendo a /consultar')
     this.router.navigate(['/consultar'])
   }
+  irAMovimiento(): void {
+    console.log('➡️ Redirigiendo a/movimientos')
+    this.router.navigate(['/movimientos'])
+  }
 }

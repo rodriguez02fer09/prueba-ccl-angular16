@@ -1,11 +1,23 @@
-<div class="dashboard-container">
-  <div class="options">
-    <button mat-raised-button color="primary" (click)="irAConsultaInventario()">
-      Consultar Inventario
-    </button>
+<div class="dashboard-wrapper">
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-card-title>📊 Panel de Inventario</mat-card-title>
+    </mat-card-header>
 
-    <button mat-raised-button color="accent" routerLink="/movimientos">
-      Registrar Movimiento
-    </button>
-  </div>
+    <mat-card-content>
+      <div class="dashboard-options">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="irAConsultaInventario()"
+        >
+          Consultar Inventario
+        </button>
+
+        <button mat-raised-button color="accent" (click)="irAMovimiento()">
+          Registrar Movimiento
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
