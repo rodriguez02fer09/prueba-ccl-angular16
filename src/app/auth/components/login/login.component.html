@@ -4,7 +4,6 @@
 
     <mat-card-content>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <!-- Campo de correo -->
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Correo electrónico</mat-label>
           <input
@@ -21,7 +20,6 @@
           </mat-error>
         </mat-form-field>
 
-        <!-- Campo de contraseña -->
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Contraseña</mat-label>
           <input
@@ -40,7 +38,6 @@
           </mat-error>
         </mat-form-field>
 
-        <!-- Botón -->
         <button
           mat-raised-button
           color="primary"
