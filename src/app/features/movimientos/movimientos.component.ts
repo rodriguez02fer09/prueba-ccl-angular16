@@ -20,7 +20,7 @@ export class MovimientosComponent implements OnInit {
     private fb: FormBuilder,
     private inventarioService: InventarioService,
     private movimientosService: MovimientosService,
-    private router: Router, // ✅ Agregamos Router para la navegación
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +30,6 @@ export class MovimientosComponent implements OnInit {
       cantidad: [null, [Validators.required, Validators.min(1)]],
     })
 
-    // Cargar lista de productos
     this.inventarioService.obtenerInventario().subscribe({
       next: data => (this.productos = data),
     })
@@ -42,13 +41,10 @@ export class MovimientosComponent implements OnInit {
       return
     }
 
-    // Registrar el movimiento
     this.movimientosService.registrarMovimiento(this.movimientoForm.value)
 
-    // Resetear el formulario
     this.movimientoForm.reset()
 
-    // ✅ Redirigir a la pantalla de consultas (inventario)
     this.router.navigate(['/consultar'])
   }
 }
