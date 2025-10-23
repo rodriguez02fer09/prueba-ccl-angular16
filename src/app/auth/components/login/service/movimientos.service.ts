@@ -21,7 +21,6 @@ export class MovimientosService {
       return
     }
 
-    // 📊 Actualizar cantidad según el tipo
     if (movimiento.tipo === 'entrada') {
       producto.cantidad += movimiento.cantidad
     } else if (movimiento.tipo === 'salida') {
@@ -32,10 +31,8 @@ export class MovimientosService {
       producto.cantidad -= movimiento.cantidad
     }
 
-    // 💾 Guardar y emitir cambio
     this.inventarioService.guardarInventario(inventario)
 
-    // ✅ Feedback
     alert(
       `✅ Movimiento registrado: ${movimiento.tipo} de ${movimiento.cantidad} unidades de ${producto.nombre}`,
     )

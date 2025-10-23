@@ -22,7 +22,6 @@ export class InventarioService {
     this.cargarInventarioDesdeMock()
   }
 
-  /** Carga inicial desde el mock */
   private cargarInventarioDesdeMock(): void {
     this.http
       .get<Producto[]>(this.url)
@@ -33,7 +32,6 @@ export class InventarioService {
             ? JSON.parse(inventarioLocal)
             : productos
 
-          // 🔄 Emitimos los productos al observable
           this.inventario$.next(inventario)
           localStorage.setItem('inventarioActual', JSON.stringify(inventario))
 
@@ -43,18 +41,15 @@ export class InventarioService {
       .subscribe()
   }
 
-  /** Observable reactivo */
   obtenerInventario(): Observable<Producto[]> {
     return this.inventario$.asObservable()
   }
 
-  /** Snapshot actual */
   obtenerInventarioActual(): Producto[] {
     const data = localStorage.getItem('inventarioActual')
     return data ? JSON.parse(data) : []
   }
 
-  /** Guarda y notifica a los componentes */
   guardarInventario(productos: Producto[]): void {
     localStorage.setItem('inventarioActual', JSON.stringify(productos))
     this.inventario$.next(productos) // 🔔 emite actualización

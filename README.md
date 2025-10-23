@@ -1,27 +1,65 @@
-# PruebaAngular16
+# 🧮 Sistema de Inventario - Angular 16
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Aplicación web desarrollada en **Angular 16** que simula un sistema de control
+de inventarios con autenticación, panel principal y registro de movimientos de
+entrada/salida.
 
-## Development server
+Incluye:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- 🧑‍💻 **Login simulado** con usuario de prueba (`mock-user.json`)
+- 📊 **Dashboard** para navegación entre módulos
+- 📦 **Consulta de Inventario** con buscador y datos desde un **mock JSON**
+- 🔄 **Registro de Movimientos** (entradas/salidas) que actualiza el inventario
+  en tiempo real
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 **Requisitos previos**
 
-## Build
+Antes de iniciar, asegurate de tener instalado lo siguiente:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- [Node.js](https://nodejs.org/) **v18 o superior**
+- [Angular CLI](https://angular.io/cli) **v16 o superior**
+- [Git](https://git-scm.com/) para clonar el repositorio
 
-## Running unit tests
+Verifica las versiones ejecutando:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+node -v
+npm -v
+ng version
 
-## Running end-to-end tests
+#Clonar el repositorio
+git clone https://github.com/tu-usuario/nombre-del-repo.git
+Entrar al directorio del proyecto
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+cd nombre-del-repo
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Instalar dependencias
+
+npm install
+
+▶️ Ejecutar el proyecto en local
+
+Inicia el servidor de desarrollo con:
+
+ng serve
+
+
+Luego, abrí tu navegador en:
+
+👉 http://localhost:4200
+
+La aplicación se recargará automáticamente cada vez que realices cambios en los archivos fuente.
+
+🔐 Credenciales de acceso
+
+Para ingresar a la aplicación, utilizá el siguiente usuario simulado:
+
+Campo	Valor
+Correo electrónico	usuario@demo.com
+Contraseña	123456
+
+Los datos se encuentran definidos en src/assets/mock-user.json.
+```

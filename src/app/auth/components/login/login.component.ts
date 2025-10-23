@@ -15,15 +15,13 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router, // 👈 Inyectamos el Router aquí
+    private router: Router,
   ) {
-    // Inicializamos el formulario con validaciones reactivas
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     })
 
-    // Cargar el usuario simulado desde el JSON
     this.http.get('assets/mock-user.json').subscribe({
       next: data => (this.mockUser = data),
       error: err => console.error('❌ Error cargando mock-user.json', err),
@@ -31,7 +29,6 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    // Validamos si el formulario es inválido
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched()
       return
@@ -40,16 +37,13 @@ export class LoginComponent {
     // Obtenemos los valores ingresados
     const {email, password} = this.loginForm.value
 
-    // Validamos contra el mock JSON
     if (
       this.mockUser &&
       email.trim().toLowerCase() === this.mockUser.email.toLowerCase() &&
       password.trim() === this.mockUser.password
     ) {
-      // Guardamos el token simulado
       localStorage.setItem('token', this.mockUser.token)
 
-      // Mostramos mensaje
       alert('✅ Inicio de sesión simulado correctamente')
 
       this.router.navigate(['/dashboard'])
