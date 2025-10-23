@@ -13,6 +13,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatTableModule} from '@angular/material/table'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatDividerModule} from '@angular/material/divider'
+import {MatSnackBarModule} from '@angular/material/snack-bar'
 
 // 🚀 Routing
 import {AppRoutingModule} from './app-routing.module'
@@ -23,7 +24,7 @@ import {LoginComponent} from './auth/components/login/login.component'
 import {DashboardComponent} from './features/dashboard/dashboard.component'
 import {InventarioComponent} from './features/inventario/inventario.component'
 import {MovimientosComponent} from './features/movimientos/movimientos.component'
-
+import {MatSelectModule} from '@angular/material/select'
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,8 @@ import {MovimientosComponent} from './features/movimientos/movimientos.component
     MatTableModule,
     MatToolbarModule,
     MatDividerModule,
+    MatSelectModule,
+    MatSnackBarModule,
 
     AppRoutingModule,
   ],

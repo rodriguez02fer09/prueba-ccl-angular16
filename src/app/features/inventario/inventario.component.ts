@@ -21,7 +21,7 @@ export class InventarioComponent implements OnInit {
   ngOnInit(): void {
     this.inventarioService.obtenerInventario().subscribe({
       next: data => {
-        console.log('✅ Inventario cargado:', data) // 🔍 verifica en consola
+        console.log('✅ Inventario cargado:', data)
         this.productos = data
         this.productosFiltrados = data
         this.loading = false
